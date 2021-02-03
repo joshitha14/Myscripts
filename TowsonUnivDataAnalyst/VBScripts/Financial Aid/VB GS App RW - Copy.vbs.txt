@@ -1,0 +1,97 @@
+'!!!This is for Read/Write access to the PS page. Will NOT work correctly for Read-Only!!!
+'<=====  Main Program Begins Here =====>
+'The PS screen identifier - similar to AppPlan identifier
+scrName = "Maintain Applications*"  '###Change as needed!!
+h = FindWindow(scrName)
+if h = 0 then msgbox scrName & vbCrLf & "Window not found"
+treeChunks = AppGetTree(h, "", treeNodes)
+
+for c = 0 to treeChunks - 1
+   tree = tree + treeNodes(c)
+next
+
+'###Comment out below for actual running. Use for development to see file of tree nodes
+'debOut(tree)
+
+'Split the nodes into discreet lines
+nodes = Split(tree, vbCrLf)
+
+'Search the nodes for our screen's anchor and then set index values based on how far up or down from anchor
+'### Search values
+valEmplID = "Not Found"
+valName = "Not Found"
+valAdmApplNbr = "Not found"
+valTerm = "Not Found"
+valPlan = "Not found"
+valSubP = "Not found"
+
+'### Search conditions. Find anchor then set index values
+for ln = 100 to UBound(nodes)
+  if (Instr(nodes(ln), "[Academic Institution]") > 0) then
+    valEmplID = GetName(nodes(ln - 2)) & GetName(nodes(ln - 3)) & GetName(nodes(ln - 4))
+    valName = NameReorder(GetName(nodes(ln - 5)) & GetName(nodes(ln - 6)) & GetName(nodes(ln - 7)))
+    Exit For  'ln
+  end if
+next  'ln
+
+for ln2 = ln to UBound(nodes)
+  if (Instr(nodes(ln2), "[Academic Career]") > 0) then
+    valAdmApplNbr = GetName(nodes(ln2 - 2)) & GetName(nodes(ln2 - 3)) & GetName(nodes(ln2 - 4))
+    Exit For  'ln2
+  end if
+next  'ln2
+
+for ln3 = ln2 to UBound(nodes)
+  'Chrome version
+  if (Instr(nodes(ln3), "text[Admit Term]->") > 0) then 
+    valTerm = Mid(nodes(ln3), InStr(nodes(ln3), ">")+1, 99)  'get value to end of row
+    Exit For  'ln3
+  end if
+next  'ln3
+
+for ln4 = ln3 to UBound(nodes)
+  if (Instr(nodes(ln4), "text[Academic Plan]->") > 0) then 
+    valPlan = Mid(nodes(ln4), InStr(nodes(ln4), ">")+1, 99)  'get value to end of row
+    Exit For  'ln4
+  end if
+next  'ln4
+
+for ln5 = ln4 to UBound(nodes)
+  if (Instr(nodes(ln5), "text[Sub-Plan]->") > 0) then  'has a value
+    valSubP = Mid(nodes(ln5), InStr(nodes(ln5), ">")+1, 99)  'get value to end of row
+    Exit For  'last anchor
+  end if
+  if (Instr(nodes(ln5), "text[Sub-Plan]") > 0) then  'does NOT have a value
+    valSubP = ""
+    Exit For  'last anchor
+  end if
+next  'ln5
+
+'###These should match the AppPlan dictionary
+field("TUID") = valEmplID
+field("Name") = valName
+field("Term") = valTerm
+field("AcadPlan") = valPlan
+'if valSubP = "NONE" then valSubP = ""
+field("SubPlan") = valSubP
+field("Adm_Appl_Nbr") = valAdmApplNbr
+
+
+'***Functions used in script***
+' return text between [] which represents name field
+function GetName(text)
+  if InStr(text, "[") > 0 and InStr(text, "]") > 0 then
+    GetName = Mid(text, InStr(text, "[")+1, InStr(text,"]")-InStr(text, "[")-1)
+  end if
+end function
+
+' write tree to text file
+function debOut(tree)
+  'fn = "O:\Information Systems\ImageNow\AppGetData\debout.txt"
+  fn = "C:\Users\" + CreateObject("WScript.Network").UserName + "\Downloads\PS_Screen.txt"
+  Set objFSO = CreateObject("Scripting.FileSystemObject")
+  Set objFile = objFSO.CreateTextFile(fn, True, true)
+  objFile.Write(tree)
+  objFile.Close
+  'CreateObject("WScript.Shell").Run(fn)
+end function

@@ -1,0 +1,63 @@
+'<=====  Main Program Begins Here =====>
+'The PS screen identifier - similar to AppPlan identifier
+scrName = "Student Program/Plan*"
+h = FindWindow(scrName)  '###Change as needed!!
+if h = 0 then msgbox scrName & vbCrLf & "Window not found"
+treeChunks = AppGetTree(h, "", treeNodes)
+
+for c = 0 to treeChunks - 1
+   tree = tree + treeNodes(c)
+next
+
+'###Comment out below for actual running. Use for development to see file of tree nodes
+'debOut(tree)
+
+valEmplID = "Not found"
+valName = "Not found"
+
+'Split the nodes into discreet lines
+nodes = Split(tree, vbCrLf)
+
+'Search the nodes for our screen's anchor and then set index values based on how far up or down from anchor
+for ln = 100 to UBound(nodes)
+  if (Instr(nodes(ln), "graphic[Comments]") > 0) then ' or (Instr(nodes(ln), "text[Student Career Nbr]") > 0) then  '### the anchor for this screen
+    'Have the anchor. Set index values
+    'Look down until find label/text for next 2 index values
+    for ln2 = ln + 1 to UBound(nodes)  'can change to lower number like 20
+      if (Instr(nodes(ln2), "label[") > 0) or (Instr(nodes(ln2), "text[") > 0) then
+        valName = Namereorder(GetName(nodes(ln2)))  'this row's value
+        Exit For
+      end if
+    next  'ln2
+    for ln3 = ln2 + 1 to UBound(nodes)  'can change to lower number like 20
+      if (Instr(nodes(ln3), "label[") > 0) or (Instr(nodes(ln3), "text[") > 0) then
+        valEmplID = GetName(nodes(ln3))  'this row's value
+        Exit For
+      end if
+    next  'ln3
+    Exit For
+  end if
+next  'ln
+
+'These should match the AppPlan dictionary
+field("EmplID") = valEmplID
+field("Name") = valName
+
+'<=====  Functions Begin Here =====>
+' return text between [] which represents name field
+function GetName(text)
+  if InStr(text, "[") > 0 and InStr(text, "]") > 0 then
+    GetName = Mid(text, InStr(text, "[")+1, InStr(text,"]")-InStr(text, "[")-1)
+  end if
+end function
+
+' write tree to text file
+function debOut(tree)
+  fn = "O:\Information Systems\ImageNow\AppGetData\debout.txt"
+  Set objFSO = CreateObject("Scripting.FileSystemObject")
+  Set objFile = objFSO.CreateTextFile(fn, True, true)
+  objFile.Write(tree)
+  objFile.Close
+  'CreateObject("WScript.Shell").Run(fn)
+end function
+

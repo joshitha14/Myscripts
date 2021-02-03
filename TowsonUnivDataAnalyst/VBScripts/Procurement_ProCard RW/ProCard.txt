@@ -1,0 +1,78 @@
+'<=====  Main Program Begins Here =====>
+'The PS screen identifier - similar to AppPlan identifier
+scrName = "Procurement Card - Compliance*"  '###Change as needed!!
+h = FindWindow(scrName)
+if h = 0 then msgbox scrName & vbCrLf & "Window not found"
+treeChunks = AppGetTree(h, "", treeNodes)
+
+for c = 0 to treeChunks - 1
+   tree = tree + treeNodes(c)
+next
+
+'###Comment out below for actual running. Use for development to see file of tree nodes
+'debOut(tree)
+
+'Split the nodes into discreet lines
+nodes = Split(tree, vbCrLf)
+
+'Search the nodes for our screen's anchor and then set index values based on how far up or down from anchor
+'### Search values
+valEmplID = "Not Found"
+valName = "Not Found"
+valReviewerName = "Not Found"
+valDepartmentNumber = "Not Found"
+
+'### Search conditions. Find anchor then set index values
+'If values are towards the bottom, like a TU mod page, faster to go ln=UBound(nodes) to 1 Step -1 and reverse order of searches for anchors
+for ln = 75 to UBound(nodes)  'top of page down
+  'Look for anchor and then set values based on offset from there. MUST include brackets [] since the words might appear multiple times on screen
+  if (Instr(nodes(ln), "[TU ID:]") > 0) then 
+    'using offset approach
+    valEmplID = Mid(GetName(nodes(ln + 1)) & GetName(nodes(ln + 2)) & GetName(nodes(ln + 3)),2, 99)
+  end if
+  if (Instr(nodes(ln), "[Name:]") > 0) then 
+    'using offset approach
+    valName = Mid(GetName(nodes(ln + 1)),2, 99)
+  end if
+  if (Instr(nodes(ln), "Department:]") > 0) then 
+    'using offset approach
+    valDepartmentNumber = Right(GetName(nodes(ln + 1)),7)
+  end if
+  if (Instr(nodes(ln), "Reviewer Name:]") > 0) then 
+    'Look to see if read-only (inactive) or read-write (active)
+      if (InStr(nodes(ln+1), ">") > 0) then 'have an active person
+        valReviewerName = Mid(nodes(ln + 1), InStr(nodes(ln+1), ">")+1, 99)
+        else valReviewerName = GetName(nodes(ln + 1))
+      end if
+   Exit For  'last anchor
+  end if
+next  'ln
+
+if Trim(valReviewerName) = "Not Defined" then 
+valReviewerName ="This field intentionally left blank"
+end if
+
+'###These MUST match the AppPlan dictionary
+field("TU ID") = Trim(valEmplID)
+field("Name") = Trim(valName)
+field("Reviewer Name") = Trim(valReviewerName)
+field("Department Number") = Trim(valDepartmentNumber)
+
+'***Functions used in script***
+' return text between [] which represents name field
+function GetName(text)
+  if InStr(text, "[") > 0 and InStr(text, "]") > 0 then
+    GetName = Mid(text, InStr(text, "[")+1, InStr(text,"]")-InStr(text, "[")-1)
+  end if
+end function
+
+' write tree to text file
+function debOut(tree)
+  'fn = "O:\Information Systems\ImageNow\AppGetData\debout.txt"  'IN folder
+  fn = "C:\Users\" + CreateObject("WScript.Network").UserName + "\Downloads\PS_Screen.txt"  'user's folder
+  Set objFSO = CreateObject("Scripting.FileSystemObject")
+  Set objFile = objFSO.CreateTextFile(fn, True, true)
+  objFile.Write(tree)
+  objFile.Close
+  'CreateObject("WScript.Shell").Run(fn)
+end function
