@@ -1,0 +1,161 @@
+/********************************************************************************
+Name:			AP_DocuSign_Review_Inbound.js
+Author:			Jay Taffel
+Created:		04/09/2019 Jay Taffel - TechHelp 282089
+Last Updated:		02/03/2020 Jay Taffel - TechHelp 
+For Version:	7.x
+Script Version: $Id$
+---------------------------------------------------------------------------------
+Summary:
+		Removes last 5 pages of DocuSign impored files. that went through FCC. Routes based on index values.
+
+Business Use:  
+		Inbound script to distribue newly imported files
+		
+Program Logic:
+	 Loop
+		Get number of pages. Always last 5 pages can be removed.
+		Possible route based on Field4.
+		
+Mod Summary: 
+		02/03/2020 - TechHelp ## - Jay Taffel -  Enhancing the Script to remove 1st page of Docusign imported files that went through 							                                 FCC. Routes based on index values
+
+********************************************************************************/
+
+//******************************* LOGGING *****************************
+#include "$IMAGENOWDIR6$/script/STL/packages/Logging/iScriptDebug.js"
+#define LOG_TO_FILE true // false - log to stdout if ran by intool, wf user if inscript.
+                         // true  - log to inserverXX/log/ directory
+#define DEBUG_LEVEL 5    // 0 - 5.  0 least output, 5 most verbose. Use 3 for normal operation since some STLs use 4/Info
+var debug = "";
+var strThisScript = "TEST AP_DocuSign_Review_Inbound.js";
+
+//************************** INCLUDE Towson COMMON FUNCTIONS ***********************
+#include "$IMAGENOWDIR6$/script/TU_LIB_TU_FUNCTIONS.js"
+
+//************************** INCLUDE STL COMMON FUNCTIONS ***********************
+#include "$IMAGENOWDIR6$/script/STL/packages/Workflow/routeItem.js"
+
+// *********************         Configuration        *******************
+// ********************* Global variables ********************
+//Workflow Queues
+var Q_COMPLETE = "AP_DocuSign_AU_Review";
+var Q_ERROR = "AP_DocuSign_Review_Error";
+
+// ********************* Include additional libraries *******************
+
+/** ****************************************************************************
+  *		Main body of script.
+  *
+  * @param {none} None
+  * @returns {void} None
+
+  *****************************************************************************/
+function main ()
+{
+	try
+	{
+		var strH = "----------------------------------------------------------------------------------------------------\n";
+		var strF = "____________________________________________________________________________________________________\n";
+		debug = new iScriptDebug("USE SCRIPT FILE NAME", LOG_TO_FILE, DEBUG_LEVEL, undefined, {strHeader:strH, strFooter:strF});
+        debug.showINowInfo("INFO");
+		debug.logAlways("INFO", "Script Version: $Id$\n");
+
+		var wfItem = new INWfItem(currentWfItem.id); // get current workflow item
+		wfItem.getInfo();
+		var wfDoc = new INDocument(wfItem.objectId); // get current document from wf item
+		if(!wfDoc.getInfo())
+		{
+			debug.logln("CRITICAL", "Couldn't get document info: %s", getErrMsg());
+			routeItem(wfItem, Q_ERROR, "Couldn't get document info");
+			return false;
+		}
+		//get latest version info from the document
+		var ver = new INVersion(wfDoc.id, -1);
+		if (!ver.getInfo())
+		{
+			debug.logln("ERROR", "Couldn't get version info for document [%s]:\n%s", wfDoc, getErrMsg());
+			routeItem(wfItem, Q_ERROR, "Couldn't get version info for document");
+			return false;
+		}
+		debug.logln(5, "Total logobs / pages [%d] in document [%s]\n", ver.logobCount, wfDoc);
+		//Cycle through all docs to remove last 5 pages
+		for (var intLoop = 1; intLoop <= 5; intLoop++)
+		{
+			var PageToDelete = ver.logobCount - 4;  //Total pages in doc minus 4 to get page to delete in loop
+			var logob = new INLogicalObject(wfDoc.id, -1, PageToDelete);
+			if (!logob.getInfo())
+			{
+				debug.logln("ERROR", "Couldn't get logical object info for page [%s] of document [%s]: %s", PageToDelete, wfDoc, getErrMsg());
+				routeItem(wfItem, Q_ERROR, "Couldn't get logical object info for page " + PageToDelete);
+				return false;
+			}
+			var rtn = wfDoc.deleteObject(logob.id);  //remove the specified logobject
+			if (rtn)
+			{
+				debug.logln(5, "Page deleted. Loop [%s]", intLoop);
+			}
+			else
+			{
+				debug.logln(5, "Page NOT deleted. Loop [%s]", intLoop);
+			}
+		}  //of for loop
+		
+		//TechHelp 323484 BEGIN
+		//To remove the 1 page of the document
+		var PageToDelete = 1;
+		var logob = new INLogicalObject(wfDoc.id, -1, PageToDelete); // get page one of current version
+			if (!logob.getInfo())
+			{
+				debug.logln("ERROR", "Couldn't get logical object info for page [%s] of document [%s]: %s", PageToDelete, wfDoc, getErrMsg());
+				routeItem(wfItem, Q_ERROR, "Couldn't get logical object info for page " + PageToDelete);
+				return false;
+			}
+			var rtn = wfDoc.deleteObject(logob.id);  //remove the specified logobject i.e 1st page of the document
+			if (rtn)
+			{
+				debug.logln(5, "Page:1 deleted. Loop [%s]", intLoop);
+			}
+			else
+			{
+				debug.logln(5, "Page:1 NOT deleted. Loop [%s]", intLoop);
+			}
+		}  //of for loop
+		//TechHelp 323484 END
+
+		//Now see if need to route to different queue
+		if(wfDoc.field4 == "AU Eligible") routeItem(wfItem, Q_COMPLETE);
+	}  //end of try
+	
+	catch(e)
+	{
+		if(!debug)
+		{
+			printf("\n\nFATAL iSCRIPT ERROR: %s\n\n", e.toString());
+		}
+		else
+		{
+			debug.log("CRITICAL", "***********************************************\n");
+			debug.log("CRITICAL", "***********************************************\n");
+			debug.log("CRITICAL", "**                                           **\n");
+			debug.log("CRITICAL", "**    ***    Fatal iScript Error!     ***    **\n");
+			debug.log("CRITICAL", "**                                           **\n");
+			debug.log("CRITICAL", "***********************************************\n");
+			debug.log("CRITICAL", "***********************************************\n");
+			debug.log("CRITICAL", "\n\n\n%s\n\n\n", e.toString());
+			debug.log("CRITICAL", "***********************************************\n");
+			debug.log("CRITICAL", "***********************************************\n");
+			////send mail to IN team
+			TU_Func_AlertINAdmins(strThisScript);
+		}
+	}
+	
+	finally
+	{
+		if(debug) debug.finish();
+	}
+}
+
+// ********************* Function Definitions **********************************
+
+//-- last line must be a comment --

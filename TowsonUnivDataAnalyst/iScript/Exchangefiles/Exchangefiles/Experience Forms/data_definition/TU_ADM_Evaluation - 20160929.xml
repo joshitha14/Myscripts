@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Change History -->
+<!-- 06/15/2015 JMT - TechHelp 117184 - Add PS Comments to form. The displayed value is the Short_Desc from PS. Value is the PS code.-->
+<!-- 03/31/2016 JMT - TechHelp 121076 - Change in SAT scores for 2016. Now will load all scores for all tests taken.-->
+<!-- 09/27/2016 JMT - TechHelp 176703 - Change #2 in SAT scores for 2016. Group pre- and post-2016 separately showing MAX in each-->
+
+<page>
+	<ErrorMessage></ErrorMessage>
+	<EmplId></EmplId>
+	<LastRefreshed></LastRefreshed> 
+	<AdmAppNbr></AdmAppNbr>
+	<AdmitTerm></AdmitTerm>
+	<Name></Name>
+	<AdmitType></AdmitType>
+	<Address></Address>
+	<City></City>
+	<State></State>
+	<Zip></Zip>
+	<County></County>
+	<Gender></Gender>
+	<AcademicProgram></AcademicProgram>
+	<Residency></Residency>
+	<AcademicPlan></AcademicPlan>
+	<AcademicSubplan></AcademicSubplan>
+	<RepGPA>0</RepGPA>
+	<Rep2GPA>4.0</Rep2GPA>  <!-- Leave defaulted -->
+	<AdmGPA>0</AdmGPA>
+	<Adm2GPA>4.0</Adm2GPA>  <!-- Leave defaulted -->
+	<RIC1>0</RIC1>
+	<RIC2>0</RIC2>
+	<RIC3>0</RIC3>
+	<HSCEEB></HSCEEB>
+	<HighSchoolName></HighSchoolName>
+	<SATComp2>0</SATComp2>
+	<SATComp3>0</SATComp3>
+	<SATMath>0</SATMath>
+	<SATVerbal>0</SATVerbal>
+	<SATWriting>0</SATWriting>
+	<SATDateLoaded></SATDateLoaded>
+	<!--TechHelp 176703 - Change #2 in SAT scores for 2016. Group pre- and post-2016 separately showing MAX in each-->
+	<SAT16MaxTotal>0</SAT16MaxTotal>
+	<SAT16MaxMath>0</SAT16MaxMath>
+	<SAT16MaxVerbal>0</SAT16MaxVerbal>
+	<SAT16MaxDateLoaded></SAT16MaxDateLoaded>
+	<!--TechHelp 176703 END-->
+	<!--TechHelp 121076 - Change in SAT scores for 2016. Now will load all scores for all tests taken.-->
+	<SAT16>
+		<row>
+			<SATMath16>0</SATMath16>
+			<SATVerb16>0</SATVerb16>
+			<SATWrit16>0</SATWrit16>
+			<SATTestDate16></SATTestDate16>
+			<SATDateLoaded16></SATDateLoaded16>
+		</row>
+	</SAT16><!--TechHelp 121076 END-->
+	<ACTComp>0</ACTComp>
+	<ACTMath>0</ACTMath>
+	<ACTEnglish>0</ACTEnglish>
+	<ACTWriting>0</ACTWriting>
+	<ACTScience>0</ACTScience>
+	<ACTRead>0</ACTRead>
+	<ACTDateLoaded></ACTDateLoaded>
+	<!--TOEFL segments TILIS, TIREA, TISPE, TITOT, TIWR-->
+	<TILIS>0</TILIS>
+	<TIREA>0</TIREA>
+	<TISPE>0</TISPE>
+	<TITOT>0</TITOT>
+	<TIWR>0</TIWR>
+	<ToeflDateLoaded></ToeflDateLoaded>
+	<CombGPA></CombGPA>
+	<CumCredits></CumCredits>
+	<CumAttemptedCredits></CumAttemptedCredits>
+	<Transcripts>
+		<row>
+			<TransName></TransName>
+			<TransCEEB></TransCEEB>
+			<TransStatus></TransStatus>
+			<TransQP>0</TransQP>
+			<TransQH>0</TransQH>
+			<TransGPA>0</TransGPA>
+			<TransCredits>0</TransCredits>
+			<AttemptedCredits>0</AttemptedCredits>
+		</row>
+	</Transcripts>
+	<AddRows></AddRows>  <!-- Need ??? -->
+	<Athletics></Athletics>
+	<SecondBachelors></SecondBachelors>
+	<TwoPlusTwo></TwoPlusTwo>
+	<SpecCons></SpecCons>
+	<Panama></Panama>
+	<FineArts></FineArts>
+	<TopTenPercent></TopTenPercent>
+	<ALVets></ALVets>
+	<SpecialTalent></SpecialTalent>
+	<MDS></MDS>
+	<Gateway></Gateway>
+	<!-- <SFAccessMaybe></SFAccessMaybe> -->
+	<DecisionRow>
+		<row>
+			<DecisionProgAction></DecisionProgAction>
+			<ReasonCode></ReasonCode>
+			<DecisionDisplay></DecisionDisplay>
+			<DecisionUser></DecisionUser>
+			<DecisionDate></DecisionDate>
+			<DecisionRowDisabled></DecisionRowDisabled>
+		</row>
+	</DecisionRow>
+	<DisableFields></DisableFields>
+	<CommentsRow>
+		<row>
+			<User></User>
+			<Date></Date>
+			<Comments></Comments>
+			<SystemDate></SystemDate>
+		</row>
+	</CommentsRow>
+<!-- 06/15/2015 JMT - TechHelp 117184 - Add PS Comments to form. The displayed value is the Short_Desc from PS. Value is the PS code.-->
+	<PS_Comment_Code1></PS_Comment_Code1>
+	<PS_Comment_Code2></PS_Comment_Code2>
+	<PS_Comment_Code3></PS_Comment_Code3>
+	<PS_Comment_User1></PS_Comment_User1>
+	<PS_Comment_User2></PS_Comment_User2>
+	<PS_Comment_User3></PS_Comment_User3>
+	<PS_Comment_Date1></PS_Comment_Date1>
+	<PS_Comment_Date2></PS_Comment_Date2>
+	<PS_Comment_Date3></PS_Comment_Date3>
+	<PS_Comment_Text1></PS_Comment_Text1>
+	<PS_Comment_Text2></PS_Comment_Text2>
+	<PS_Comment_Text3></PS_Comment_Text3>
+	<PS_Comment_Lttr1></PS_Comment_Lttr1>
+	<PS_Comment_Lttr2></PS_Comment_Lttr2>
+	<PS_Comment_Lttr3></PS_Comment_Lttr3>
+	<PS_Comment_Trns1></PS_Comment_Trns1>
+	<PS_Comment_Trns2></PS_Comment_Trns2>
+	<PS_Comment_Trns3></PS_Comment_Trns3>
+</page>

@@ -1,0 +1,134 @@
+﻿----------------------------------------------------------------------------------------------------
+01/27 14:25:36.443 8140[  INFO  ] Perceptive Content info:  [Running from Workflow queue 'UG_Update Checklist'] Version: 7.2.3.439, Database: Oracle, Department Context: Default 
+01/27 14:25:38.678 8140[  DEBUG ] DBAccess_open: Connected to DB through DSN: [CS9QA]
+01/27 14:25:38.734 8140[  INFO  ] Processing: [-INDocument-UG Admissions/321Z41V_00LR8RDW7000011-0274326/TEST, test/8888/8888/today-Transcript - College-V:0-321Z41V_00LR8RDW7000011-]
+01/27 14:25:38.734 8140[  DEBUG ] DBAccess_query: SQL: [select B.CHECKLIST_CD, CHECKLIST_SEQ from sysadm.ps_person_chk_item A, sysadm.PS_PERSON_CHECKLST B where A.chklst_item_cd like 'EDUC%' AND A.COMMON_ID = B.COMMON_ID AND A.SEQ_3C = B.SEQ_3C AND A.ITEM_STATUS <> 'C' AND ADMIN_FUNCTION = 'ADMA' AND CHECKLIST_CD IN ('UG19TR','UG19FR','GRAD') AND A.COMMON_ID = '0274326' AND A.ASSOC_ID = '8888']
+01/27 14:25:38.828 8140[  DEBUG ] EDUC: No incomplete EDUC checklist items.
+01/27 14:25:38.828 8140[  DEBUG ] DBAccess_query: SQL: [select B.CHECKLIST_CD, CHECKLIST_SEQ from sysadm.ps_person_chk_item A, sysadm.PS_PERSON_CHECKLST B where A.chklst_item_cd like 'EDUC%' AND A.COMMON_ID = B.COMMON_ID AND A.SEQ_3C = B.SEQ_3C AND A.ITEM_STATUS = 'C' AND ADMIN_FUNCTION = 'ADMA' AND CHECKLIST_CD IN ('UG19TR','UG19FR','GRAD') AND A.COMMON_ID = '0274326' AND A.ASSOC_ID = '8888']
+01/27 14:25:38.836 8140[  DEBUG ] DBAccess_query: SQL: [select B.CHECKLIST_CD, CHECKLIST_SEQ from sysadm.ps_person_chk_item A, sysadm.PS_PERSON_CHECKLST B where A.chklst_item_cd like 'TRN%' AND A.COMMON_ID = B.COMMON_ID AND A.SEQ_3C = B.SEQ_3C AND A.ITEM_STATUS <> 'C' AND ADMIN_FUNCTION = 'ADMP' AND CHECKLIST_CD = 'TREVAL' AND A.COMMON_ID = '0274326' AND A.ASSOC_ID = '8888']
+01/27 14:25:38.843 8140[  DEBUG ] TREVAL: No incomplete TRN checklist items.
+01/27 14:25:38.844 8140[  DEBUG ] DBAccess_query: SQL: [select B.CHECKLIST_CD, CHECKLIST_SEQ from sysadm.ps_person_chk_item A, sysadm.PS_PERSON_CHECKLST B where A.chklst_item_cd like 'TRN%' AND A.COMMON_ID = B.COMMON_ID AND A.SEQ_3C = B.SEQ_3C AND A.ITEM_STATUS = 'C' AND ADMIN_FUNCTION = 'ADMP' AND CHECKLIST_CD = 'TREVAL' AND A.COMMON_ID = '0274326' AND A.ASSOC_ID = '8888']
+01/27 14:25:38.850 8140[  DEBUG ] DBAccess_query: SQL: [select B.CHECKLIST_CD, CHECKLIST_SEQ from sysadm.ps_person_chk_item A, sysadm.PS_PERSON_CHECKLST B where A.chklst_item_cd = 'TRNS' AND A.COMMON_ID = B.COMMON_ID AND A.SEQ_3C = B.SEQ_3C AND A.ITEM_STATUS <> 'C' AND ADMIN_FUNCTION = 'SPRG' AND CHECKLIST_CD IN ('EXTERN','TRFR','READMT') AND A.COMMON_ID = '0274326' AND A.ASSOC_ID = '8888']
+01/27 14:25:38.856 8140[  DEBUG ] No cursor_R1.first; no Regi checklist 
+01/27 14:25:38.860 8140[  INFO  ] ROUTE: 0 checklist items updated for [-INDocument-UG Admissions/321Z41V_00LR8RDW7000011-0274326/TEST, test/8888/8888/today-Transcript - College-V:0-321Z41V_00LR8RDW7000011-].
+01/27 14:25:38.860 8140[  INFO  ] No checklist items updated.
+01/27 14:25:38.883 8140[  DEBUG ] setDocNotes: Setting notes for document [-INDocument-UG Admissions/321Z41V_00LR8RDW7000011-0274326/TEST, test/8888/8888/today-Transcript - College-V:0-321Z41V_00LR8RDW7000011-] to [No checklist items to update.]
+01/27 14:25:39.176 8140[  DEBUG ] routeItem: [321Z41V_00LR8PDW7000005] routed to [UG_Update Checklist Parking] reason [No checklist items to update]
+01/27 14:25:39.188 8140[  INFO  ] 
+01/27 14:25:39.188 8140[  INFO  ] Log Error Counts:
+01/27 14:25:39.188 8140[  INFO  ]   CRITICAL: 0
+01/27 14:25:39.188 8140[  INFO  ]      ERROR: 0
+01/27 14:25:39.188 8140[  INFO  ] 
+01/27 14:25:39.188 8140[  INFO  ] Script run time:  3s
+____________________________________________________________________________________________________
+----------------------------------------------------------------------------------------------------
+01/27 14:33:35.827 8136[  INFO  ] Perceptive Content info:  [Running from Workflow queue 'UG_Update Checklist'] Version: 7.2.3.439, Database: Oracle, Department Context: Default 
+01/27 14:33:35.924 8136[  DEBUG ] DBAccess_open: Connected to DB through DSN: [CS9QA]
+01/27 14:33:35.976 8136[  INFO  ] Processing: [-INDocument-UG Admissions/321Z41V_00LR8RDW7000011-0274326/TEST, test/8888/8888/today-Transcript - College-V:0-321Z41V_00LR8RDW7000011-]
+01/27 14:33:35.976 8136[  DEBUG ] DBAccess_query: SQL: [select B.CHECKLIST_CD, CHECKLIST_SEQ from sysadm.ps_person_chk_item A, sysadm.PS_PERSON_CHECKLST B where A.chklst_item_cd like 'EDUC%' AND A.COMMON_ID = B.COMMON_ID AND A.SEQ_3C = B.SEQ_3C AND A.ITEM_STATUS <> 'C' AND ADMIN_FUNCTION = 'ADMA' AND CHECKLIST_CD IN ('UG20TR','UG20FR','GRAD') AND A.COMMON_ID = '0274326' AND A.ASSOC_ID = '8888']
+01/27 14:33:35.993 8136[  DEBUG ] EDUC: No incomplete EDUC checklist items.
+01/27 14:33:35.993 8136[  DEBUG ] DBAccess_query: SQL: [select B.CHECKLIST_CD, CHECKLIST_SEQ from sysadm.ps_person_chk_item A, sysadm.PS_PERSON_CHECKLST B where A.chklst_item_cd like 'EDUC%' AND A.COMMON_ID = B.COMMON_ID AND A.SEQ_3C = B.SEQ_3C AND A.ITEM_STATUS = 'C' AND ADMIN_FUNCTION = 'ADMA' AND CHECKLIST_CD IN ('UG20TR','UG20FR','GRAD') AND A.COMMON_ID = '0274326' AND A.ASSOC_ID = '8888']
+01/27 14:33:36.007 8136[  DEBUG ] DBAccess_query: SQL: [select B.CHECKLIST_CD, CHECKLIST_SEQ from sysadm.ps_person_chk_item A, sysadm.PS_PERSON_CHECKLST B where A.chklst_item_cd like 'TRN%' AND A.COMMON_ID = B.COMMON_ID AND A.SEQ_3C = B.SEQ_3C AND A.ITEM_STATUS <> 'C' AND ADMIN_FUNCTION = 'ADMP' AND CHECKLIST_CD = 'TREVAL' AND A.COMMON_ID = '0274326' AND A.ASSOC_ID = '8888']
+01/27 14:33:36.012 8136[  INFO  ] TREVAL: Now working non-complete Checklist Code 'TREVAL'
+01/27 14:33:36.012 8136[  INFO  ] TREVAL: FIND request:
+01/27 14:33:36.012 8136[  INFO  ]     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:m40="http://xmlns.oracle.com/Enterprise/Tools/schemas/M403475.V1"><soapenv:Header/><soapenv:Body><m40:Find__CompIntfc__TU_IMG_ADM_CHK_CI><m40:CHECKLIST_CD>TREVAL</m40:CHECKLIST_CD><m40:COMMON_ID>0274326</m40:COMMON_ID><m40:ADMIN_FUNCTION>ADMP</m40:ADMIN_FUNCTION></m40:Find__CompIntfc__TU_IMG_ADM_CHK_CI></soapenv:Body></soapenv:Envelope>
+01/27 14:33:37.662 8136[  DEBUG ] TU_callOperation: Response:
+ <?xml version="1.0" encoding="UTF-8"?> <soapenv:Envelope   xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body>
+<m40:Find__CompIntfc__TU_IMG_ADM_CHK_CIResponse xmlns:m40="http://xmlns.oracle.com/Enterprise/Tools/schemas/M196224.V1"><m40:TU_IMG_ADM_CHK_CI><m40:COMMON_ID>0274326</m40:COMMON_ID><m40:SEQ_3C>4</m40:SEQ_3C><m40:ADMIN_FUNCTION>ADMP</m40:ADMIN_FUNCTION><m40:CHECKLIST_CD>TREVAL</m40:CHECKLIST_CD><m40:NATIONAL_ID>False</m40:NATIONAL_ID><m40:CAMPUS_ID>MAIN</m40:CAMPUS_ID><m40:LAST_NAME_SRCH>SEWELLTIPPIN</m40:LAST_NAME_SRCH><m40:FIRST_NAME_SRCH>SARAH</m40:FIRST_NAME_SRCH></m40:TU_IMG_ADM_CHK_CI></m40:Find__CompIntfc__TU_IMG_ADM_CHK_CIResponse></soapenv:Body> </soapenv:Envelope>
+01/27 14:33:37.666 8136[  INFO  ] TREVAL: updateOutput:
+01/27 14:33:37.666 8136[  INFO  ]     undefined
+01/27 14:33:37.666 8136[  INFO  ] TREVAL: Looking at SEQ_3C sequence '4' 
+01/27 14:33:37.667 8136[  DEBUG ]     DBAccess_query: SQL: [select A.CHKLST_ITEM_CD, CHECKLIST_SEQ from sysadm.ps_person_chk_item A, sysadm.PS_PERSON_CHECKLST B where A.chklst_item_cd like 'TRN%' AND A.COMMON_ID = B.COMMON_ID AND A.SEQ_3C = B.SEQ_3C AND A.ITEM_STATUS <> 'C' AND ADMIN_FUNCTION = 'ADMP' AND CHECKLIST_CD = 'TREVAL' AND A.COMMON_ID = '0274326' AND A.SEQ_3C = 4 AND A.ASSOC_ID = '8888']
+01/27 14:33:37.675 8136[  INFO  ]     TREVAL: Updating Checklist Item 'TRNFL'
+01/27 14:33:37.676 8136[  INFO  ]         TREVAL: Update request:
+01/27 14:33:37.676 8136[  INFO  ]             <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:m95="http://xmlns.oracle.com/Enterprise/Tools/schemas/M958301.V1"><soapenv:Header/><soapenv:Body><m95:Updatedata__CompIntfc__TU_IMG_ADM_CHK_CI><m95:COMMON_ID>0274326</m95:COMMON_ID><m95:SEQ_3C>4</m95:SEQ_3C><m95:ADMIN_FUNCTION>ADMP</m95:ADMIN_FUNCTION><m95:CHECKLIST_CD>TREVAL</m95:CHECKLIST_CD><m95:INSTITUTION>TOWSN</m95:INSTITUTION><m95:PERSON_CHK_ITEM><m95:CHECKLIST_SEQ>200</m95:CHECKLIST_SEQ><m95:CHKLST_ITEM_CD>TRNFL</m95:CHKLST_ITEM_CD><m95:ITEM_STATUS>C</m95:ITEM_STATUS><m95:STATUS_DT_0>2020-01-27</m95:STATUS_DT_0></m95:PERSON_CHK_ITEM></m95:Updatedata__CompIntfc__TU_IMG_ADM_CHK_CI></soapenv:Body></soapenv:Envelope>
+01/27 14:33:38.727 8136[  DEBUG ]         TU_callOperation: Response:
+ <?xml version="1.0" encoding="UTF-8"?> <soapenv:Envelope   xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body>
+<m95:Updatedata__CompIntfc__TU_IMG_ADM_CHK_CIResponse xmlns:m95="http://xmlns.oracle.com/Enterprise/Tools/schemas/M196224.V1"><m95:notification>1</m95:notification><m95:detail></m95:detail></m95:Updatedata__CompIntfc__TU_IMG_ADM_CHK_CIResponse></soapenv:Body> </soapenv:Envelope>
+01/27 14:33:38.728 8136[  INFO  ]         TREVAL: updateOutput:
+01/27 14:33:38.729 8136[  INFO  ]             [Body] =>
+01/27 14:33:38.729 8136[  INFO  ]                 [Updatedata__CompIntfc__TU_IMG_ADM_CHK_CIResponse] =>
+01/27 14:33:38.729 8136[  INFO  ]                     [notification] => "1"
+01/27 14:33:38.729 8136[  INFO  ]                     [detail] => ""
+01/27 14:33:38.733 8136[  INFO  ] ROUTE: 1 checklist items updated for [-INDocument-UG Admissions/321Z41V_00LR8RDW7000011-0274326/TEST, test/8888/8888/today-Transcript - College-V:0-321Z41V_00LR8RDW7000011-].
+01/27 14:33:38.923 8136[  DEBUG ] routeItem: [321Z41V_00LR8PDW7000005] routed to [UG_Transfer Evaluation] reason [Script successfully updated at least 1 checklist item]
+01/27 14:33:38.927 8136[  INFO  ] 
+01/27 14:33:38.927 8136[  INFO  ] Log Error Counts:
+01/27 14:33:38.927 8136[  INFO  ]   CRITICAL: 0
+01/27 14:33:38.927 8136[  INFO  ]      ERROR: 0
+01/27 14:33:38.927 8136[  INFO  ] 
+01/27 14:33:38.928 8136[  INFO  ] Script run time:  3s
+____________________________________________________________________________________________________
+----------------------------------------------------------------------------------------------------
+01/27 14:47:58.447 8140[  INFO  ] Perceptive Content info:  [Running from Workflow queue 'UG_Update Checklist'] Version: 7.2.3.439, Database: Oracle, Department Context: Default 
+01/27 14:47:58.525 8140[  DEBUG ] DBAccess_open: Connected to DB through DSN: [CS9QA]
+01/27 14:47:58.564 8140[  INFO  ] Processing: [-INDocument-UG Admissions/321Z41V_00LR8RDW7000011-0274326/TEST, test/8888/8888/today-Transcript - College-V:0-321Z41V_00LR8RDW7000011-]
+01/27 14:47:58.565 8140[  DEBUG ] DBAccess_query: SQL: [select B.CHECKLIST_CD, CHECKLIST_SEQ from sysadm.ps_person_chk_item A, sysadm.PS_PERSON_CHECKLST B where A.chklst_item_cd like 'EDUC%' AND A.COMMON_ID = B.COMMON_ID AND A.SEQ_3C = B.SEQ_3C AND A.ITEM_STATUS <> 'C' AND ADMIN_FUNCTION = 'ADMA' AND CHECKLIST_CD IN ('UG20TR','UG20FR','GRAD') AND A.COMMON_ID = '0274326' AND A.ASSOC_ID = '8888']
+01/27 14:47:58.569 8140[  DEBUG ] EDUC: No incomplete EDUC checklist items.
+01/27 14:47:58.569 8140[  DEBUG ] DBAccess_query: SQL: [select B.CHECKLIST_CD, CHECKLIST_SEQ from sysadm.ps_person_chk_item A, sysadm.PS_PERSON_CHECKLST B where A.chklst_item_cd like 'EDUC%' AND A.COMMON_ID = B.COMMON_ID AND A.SEQ_3C = B.SEQ_3C AND A.ITEM_STATUS = 'C' AND ADMIN_FUNCTION = 'ADMA' AND CHECKLIST_CD IN ('UG20TR','UG20FR','GRAD') AND A.COMMON_ID = '0274326' AND A.ASSOC_ID = '8888']
+01/27 14:47:58.573 8140[  DEBUG ] EDUC: Have complete EDUC checklist items. Check doctype for HS or College
+01/27 14:47:58.573 8140[  DEBUG ] EDUC: Looking for ANY_TREVAL.
+01/27 14:47:58.573 8140[  DEBUG ] DBAccess_query: SQL: [select B.CHECKLIST_CD, CHECKLIST_SEQ from sysadm.ps_person_chk_item A, sysadm.PS_PERSON_CHECKLST B where A.chklst_item_cd like 'TRN%' AND A.COMMON_ID = B.COMMON_ID AND A.SEQ_3C = B.SEQ_3C AND ADMIN_FUNCTION = 'ADMP' AND CHECKLIST_CD = 'TREVAL' AND A.COMMON_ID = '0274326' AND A.ASSOC_ID = '8888']
+01/27 14:47:58.589 8140[  INFO  ] EDUC: Found a TREVAL! [TREVAL]
+01/27 14:47:58.593 8140[  INFO  ] 
+01/27 14:47:58.593 8140[  INFO  ] Log Error Counts:
+01/27 14:47:58.593 8140[  INFO  ]   CRITICAL: 0
+01/27 14:47:58.593 8140[  INFO  ]      ERROR: 0
+01/27 14:47:58.593 8140[  INFO  ] 
+01/27 14:47:58.593 8140[  INFO  ] Script run time:  0s
+____________________________________________________________________________________________________
+----------------------------------------------------------------------------------------------------
+01/27 14:53:35.678 7236[  INFO  ] Perceptive Content info:  [Running from Workflow queue 'UG_Update Checklist'] Version: 7.2.3.439, Database: Oracle, Department Context: Default 
+01/27 14:53:35.764 7236[  DEBUG ] DBAccess_open: Connected to DB through DSN: [CS9QA]
+01/27 14:53:35.814 7236[  INFO  ] Processing: [-INDocument-UG Admissions/321Z41V_00LR8RDW7000011-0274326/TEST, test/8888/8888/today-Transcript - College-V:0-321Z41V_00LR8RDW7000011-]
+01/27 14:53:35.814 7236[  DEBUG ] DBAccess_query: SQL: [select B.CHECKLIST_CD, CHECKLIST_SEQ from sysadm.ps_person_chk_item A, sysadm.PS_PERSON_CHECKLST B where A.chklst_item_cd like 'EDUC%' AND A.COMMON_ID = B.COMMON_ID AND A.SEQ_3C = B.SEQ_3C AND A.ITEM_STATUS <> 'C' AND ADMIN_FUNCTION = 'ADMA' AND CHECKLIST_CD IN ('UG20TR','UG20FR','GRAD') AND A.COMMON_ID = '0274326' AND A.ASSOC_ID = '8888']
+01/27 14:53:35.818 7236[  DEBUG ] EDUC: No incomplete EDUC checklist items.
+01/27 14:53:35.818 7236[  DEBUG ] DBAccess_query: SQL: [select B.CHECKLIST_CD, CHECKLIST_SEQ from sysadm.ps_person_chk_item A, sysadm.PS_PERSON_CHECKLST B where A.chklst_item_cd like 'EDUC%' AND A.COMMON_ID = B.COMMON_ID AND A.SEQ_3C = B.SEQ_3C AND A.ITEM_STATUS = 'C' AND ADMIN_FUNCTION = 'ADMA' AND CHECKLIST_CD IN ('UG20TR','UG20FR','GRAD') AND A.COMMON_ID = '0274326' AND A.ASSOC_ID = '8888']
+01/27 14:53:35.822 7236[  DEBUG ] EDUC: Have complete EDUC checklist items. Check doctype for HS or College
+01/27 14:53:35.822 7236[  DEBUG ] EDUC: Looking for ANY_TREVAL.
+01/27 14:53:35.822 7236[  DEBUG ] DBAccess_query: SQL: [select B.CHECKLIST_CD, CHECKLIST_SEQ from sysadm.ps_person_chk_item A, sysadm.PS_PERSON_CHECKLST B where A.chklst_item_cd like 'TRN%' AND A.COMMON_ID = B.COMMON_ID AND A.SEQ_3C = B.SEQ_3C AND ADMIN_FUNCTION = 'ADMP' AND CHECKLIST_CD = 'TREVAL' AND A.COMMON_ID = '0274326' AND A.ASSOC_ID = '8888']
+01/27 14:53:35.826 7236[  INFO  ] EDUC: Found a TREVAL! [TREVAL]
+01/27 14:53:35.831 7236[  INFO  ] 
+01/27 14:53:35.831 7236[  INFO  ] Log Error Counts:
+01/27 14:53:35.831 7236[  INFO  ]   CRITICAL: 0
+01/27 14:53:35.831 7236[  INFO  ]      ERROR: 0
+01/27 14:53:35.831 7236[  INFO  ] 
+01/27 14:53:35.831 7236[  INFO  ] Script run time:  0s
+____________________________________________________________________________________________________
+----------------------------------------------------------------------------------------------------
+01/27 14:59:16.427 7236[  INFO  ] Perceptive Content info:  [Running from Workflow queue 'UG_Update Checklist'] Version: 7.2.3.439, Database: Oracle, Department Context: Default 
+01/27 14:59:16.510 7236[  DEBUG ] DBAccess_open: Connected to DB through DSN: [CS9QA]
+01/27 14:59:16.575 7236[  INFO  ] Processing: [-INDocument-UG Admissions/321Z41V_00LR8RDW7000011-0274326/TEST, test/8888/8888/today-Transcript - College-V:0-321Z41V_00LR8RDW7000011-]
+01/27 14:59:16.576 7236[  DEBUG ] DBAccess_query: SQL: [select B.CHECKLIST_CD, CHECKLIST_SEQ from sysadm.ps_person_chk_item A, sysadm.PS_PERSON_CHECKLST B where A.chklst_item_cd like 'EDUC%' AND A.COMMON_ID = B.COMMON_ID AND A.SEQ_3C = B.SEQ_3C AND A.ITEM_STATUS <> 'C' AND ADMIN_FUNCTION = 'ADMA' AND CHECKLIST_CD IN ('UG20TR','UG20FR','GRAD') AND A.COMMON_ID = '0274326' AND A.ASSOC_ID = '8888']
+01/27 14:59:16.581 7236[  DEBUG ] EDUC: No incomplete EDUC checklist items.
+01/27 14:59:16.582 7236[  DEBUG ] DBAccess_query: SQL: [select B.CHECKLIST_CD, CHECKLIST_SEQ from sysadm.ps_person_chk_item A, sysadm.PS_PERSON_CHECKLST B where A.chklst_item_cd like 'EDUC%' AND A.COMMON_ID = B.COMMON_ID AND A.SEQ_3C = B.SEQ_3C AND A.ITEM_STATUS = 'C' AND ADMIN_FUNCTION = 'ADMA' AND CHECKLIST_CD IN ('UG20TR','UG20FR','GRAD') AND A.COMMON_ID = '0274326' AND A.ASSOC_ID = '8888']
+01/27 14:59:16.586 7236[  DEBUG ] EDUC: Have complete EDUC checklist items. Check doctype for HS or College
+01/27 14:59:16.587 7236[  DEBUG ] EDUC: Looking for ANY_TREVAL.
+01/27 14:59:16.587 7236[  DEBUG ] DBAccess_query: SQL: [select B.CHECKLIST_CD, CHECKLIST_SEQ from sysadm.ps_person_chk_item A, sysadm.PS_PERSON_CHECKLST B where A.chklst_item_cd like 'TRN%' AND A.COMMON_ID = B.COMMON_ID AND A.SEQ_3C = B.SEQ_3C AND ADMIN_FUNCTION = 'ADMP' AND CHECKLIST_CD = 'TREVAL' AND A.COMMON_ID = '0274326' AND A.ASSOC_ID = '8888']
+01/27 14:59:16.590 7236[  DEBUG ] EDUC: Did NOT find TREVAL.
+01/27 14:59:16.594 7236[  INFO  ] 
+01/27 14:59:16.594 7236[  INFO  ] Log Error Counts:
+01/27 14:59:16.594 7236[  INFO  ]   CRITICAL: 0
+01/27 14:59:16.594 7236[  INFO  ]      ERROR: 0
+01/27 14:59:16.594 7236[  INFO  ] 
+01/27 14:59:16.594 7236[  INFO  ] Script run time:  0s
+____________________________________________________________________________________________________
+----------------------------------------------------------------------------------------------------
+01/27 15:06:19.837 7236[  INFO  ] Perceptive Content info:  [Running from Workflow queue 'UG_Update Checklist'] Version: 7.2.3.439, Database: Oracle, Department Context: Default 
+01/27 15:06:19.902 7236[  DEBUG ] DBAccess_open: Connected to DB through DSN: [CS9QA]
+01/27 15:06:19.951 7236[  INFO  ] Processing: [-INDocument-UG Admissions/321Z41V_00LR8RDW7000011-0274326/TEST, test/8888/8888/today-Transcript - College-V:0-321Z41V_00LR8RDW7000011-]
+01/27 15:06:19.951 7236[  DEBUG ] DBAccess_query: SQL: [select B.CHECKLIST_CD, CHECKLIST_SEQ from sysadm.ps_person_chk_item A, sysadm.PS_PERSON_CHECKLST B where A.chklst_item_cd like 'EDUC%' AND A.COMMON_ID = B.COMMON_ID AND A.SEQ_3C = B.SEQ_3C AND A.ITEM_STATUS <> 'C' AND ADMIN_FUNCTION = 'ADMA' AND CHECKLIST_CD IN ('UG20TR','UG20FR','GRAD') AND A.COMMON_ID = '0274326' AND A.ASSOC_ID = '8888']
+01/27 15:06:19.954 7236[  DEBUG ] EDUC: No incomplete EDUC checklist items.
+01/27 15:06:19.955 7236[  DEBUG ] DBAccess_query: SQL: [select B.CHECKLIST_CD, CHECKLIST_SEQ from sysadm.ps_person_chk_item A, sysadm.PS_PERSON_CHECKLST B where A.chklst_item_cd like 'EDUC%' AND A.COMMON_ID = B.COMMON_ID AND A.SEQ_3C = B.SEQ_3C AND A.ITEM_STATUS = 'C' AND ADMIN_FUNCTION = 'ADMA' AND CHECKLIST_CD IN ('UG20TR','UG20FR','GRAD') AND A.COMMON_ID = '0274326' AND A.ASSOC_ID = '8888']
+01/27 15:06:19.959 7236[  DEBUG ] EDUC: Have complete EDUC checklist items. Check doctype for HS or College
+01/27 15:06:19.959 7236[  DEBUG ] EDUC: Looking for ANY_TREVAL.
+01/27 15:06:19.960 7236[  DEBUG ] DBAccess_query: SQL: [select B.CHECKLIST_CD, CHECKLIST_SEQ from sysadm.ps_person_chk_item A, sysadm.PS_PERSON_CHECKLST B where A.chklst_item_cd like 'TRN%' AND A.COMMON_ID = B.COMMON_ID AND A.SEQ_3C = B.SEQ_3C AND ADMIN_FUNCTION = 'ADMP' AND CHECKLIST_CD = 'TREVAL' AND A.COMMON_ID = '0274326' AND A.ASSOC_ID = '8888']
+01/27 15:06:19.962 7236[  DEBUG ] EDUC: Did NOT find TREVAL.
+01/27 15:06:20.059 7236[  DEBUG ] routeItem: [321Z41V_00LR8PDW7000005] routed to [UG_College_Final] reason [EDUC Checklist item already complete]
+01/27 15:06:20.063 7236[  INFO  ] 
+01/27 15:06:20.063 7236[  INFO  ] Log Error Counts:
+01/27 15:06:20.063 7236[  INFO  ]   CRITICAL: 0
+01/27 15:06:20.064 7236[  INFO  ]      ERROR: 0
+01/27 15:06:20.064 7236[  INFO  ] 
+01/27 15:06:20.064 7236[  INFO  ] Script run time:  1s
+____________________________________________________________________________________________________

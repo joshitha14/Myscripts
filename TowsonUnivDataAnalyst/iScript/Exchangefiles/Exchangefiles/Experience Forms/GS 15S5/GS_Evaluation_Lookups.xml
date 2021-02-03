@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<lookups>
+	<Decisions>
+		<row>
+			<text></text>
+			<value></value>
+		</row>
+<!--		<row>
+			<text>Admit</text>
+			<value>ADMT</value>
+		</row>
+		<row>
+			<text>Conditional Admit</text>
+			<value>COND</value>
+		</row>		
+		<row>
+			<text>Defer Decision</text>
+			<value>DDEF</value>
+		</row> -->
+		<row>
+			<text>Deny</text>
+			<value>DENY</value>
+<!--		</row>
+		<row>
+			<text>Wait List</text>
+			<value>WAIT</value> -->
+		</row>		
+		<row>
+			<text>Withdraw Administrative</text>
+			<value>WADM</value>
+		</row>		
+<!--		<row>
+			<text>Withdraw Application</text>
+			<value>WAPP</value>
+		</row> -->
+	</Decisions>	
+	<AdmitTypes>
+		<!--Added GS Admit Types 20140131 JMT-->
+		<row><text>GAP - GRAD Application</text><value>GAP</value></row>
+		<row><text>GPD - GRAD Pre-Degree</text><value>GPD</value></row>
+		<row><text>GUB - GRAD UBTUMBA Tuba</text><value>GUB</value></row>
+	</AdmitTypes>	
+</lookups>
