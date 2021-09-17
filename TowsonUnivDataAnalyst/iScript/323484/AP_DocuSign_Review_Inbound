@@ -18,7 +18,7 @@ Program Logic:
 		Possible route based on Field4.
 		
 Mod Summary: 
-		02/03/2020 - TechHelp ## - Jay Taffel & Joshitha Mandali -  Enhancing the Script to remove 1st page of Docusign imported files that went through 							                            FCC. Routes based on index values
+		02/03/2020 - TechHelp ## - Joshitha Mandali -  Enhancing the Script to remove 1st page of Docusign imported files that went through 							                            FCC. Routes based on index values
 
 ********************************************************************************/
 
