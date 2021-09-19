@@ -1,7 +1,7 @@
 ﻿/************************************************************* @fileoverview<pre>
 Name:			DS_Import_OHR_PerformanceReview.js
-Author:			Jay Taffel, Eric Baumbusch & Joshitha Mandali
-Created:		04/21/2020 TechHelp 335264 JMT, JM & ECB
+Author:			Joshitha Mandali
+Created:		04/21/2020 TechHelp 335264 JM 
 Last Updated:
 For Version:	7.x
 Script Version: $Id$
