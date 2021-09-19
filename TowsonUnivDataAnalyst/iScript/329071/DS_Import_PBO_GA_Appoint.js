@@ -2,7 +2,7 @@
 /********************************************************************************
 Name:			DS_Import_PBO_GA_Appoint.js
 Author:			Jay Taffel, Eric Baumbusch & Joshitha Mandali
-Created:		04/06/2020 JMT, ECB & JM - TechHelp 329071; to be reviewed by JMT & ECB
+Created:		04/06/2020 JM - TechHelp 329071; to be reviewed by JMT & ECB
 Last Updated:	04/15/2020 JM & ECB: TechHelp 329071-
 For Version:	7.x
 Script Version: $Id$
