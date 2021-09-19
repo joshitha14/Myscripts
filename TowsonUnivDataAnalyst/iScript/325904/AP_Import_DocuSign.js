@@ -1,7 +1,7 @@
 ﻿/********************************************************************************
 Name:			AP_Import_DocuSign.js
 Author:			Jay Taffel
-Created:		02/10/2020 TechHelp 325904 JMT & JM Do not archive empty csv file and remove old archive files from secureshare
+Created:		02/10/2020 TechHelp 325904 JM Do not archive empty csv file and remove old archive files from secureshare
 Last Updated:	
 For Version:	6.x
 Script Version: $Id$
