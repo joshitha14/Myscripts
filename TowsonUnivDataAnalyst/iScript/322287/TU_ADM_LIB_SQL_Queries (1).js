@@ -15,7 +15,7 @@
 //10/30/2018 ECB - Change over Admissions processing to 2019
 //09/05/2019 ECB - Change over Admissions processing to 2020
 //09/26/2019 JMT - TH 307854 New queries for checklist ADMP / TREVAL. Replacing _TRN series of queries.
-//01/27/2020 JMT - TechHelp 322287 New queries for routing logic for TREVAL items
+//01/27/2020 JM - TechHelp 322287 New queries for routing logic for TREVAL items
 
 #define CHECKLIST_CDS_FOR_QUERY "'UG20TR','UG20FR','GRAD'"  //###
 #define CHECKLIST_FRESHMAN_CDS "'UG20FR'" 
