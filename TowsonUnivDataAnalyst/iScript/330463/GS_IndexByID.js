@@ -1,7 +1,7 @@
 /************************************************************* @fileoverview<pre>
 	Name:           GS_IndexByID.js
 	Author:         ImageNow Service Team
-	Created:        03/12/2020 JMT - TH 330463
+	Created:        03/12/2020 JM - TH 330463
 	Last Updated:	
 	For Version:    7.2
 --------------------------------------------------------------------------------
